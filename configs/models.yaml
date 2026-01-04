@@ -1,0 +1,88 @@
+# Model configuration for fraud detection
+random_state: 42
+handle_imbalance: true
+
+# Feature engineering configuration
+feature_selection:
+  enabled: true
+  k_best: 20
+
+# Model configurations
+models:
+  random_forest:
+    enabled: true
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+    min_samples_leaf: 2
+    class_weight: "balanced"
+    random_state: 42
+
+  xgboost:
+    enabled: true
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    scale_pos_weight: 1
+    auto_scale_pos_weight: true
+    random_state: 42
+
+  lightgbm:
+    enabled: true
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    class_weight: "balanced"
+    random_state: 42
+
+  isolation_forest:
+    enabled: false
+    n_estimators: 100
+    contamination: 0.1
+    random_state: 42
+
+  neural_network:
+    enabled: false
+    hidden_sizes: [64, 32]
+    dropout_rate: 0.3
+    epochs: 100
+    learning_rate: 0.001
+    random_state: 42
+
+  ensemble:
+    enabled: true
+    weights: null  # Equal weights if null
+    models:
+      random_forest:
+        enabled: true
+        n_estimators: 50
+        max_depth: 8
+        min_samples_split: 5
+        min_samples_leaf: 2
+        class_weight: "balanced"
+        random_state: 42
+      xgboost:
+        enabled: true
+        n_estimators: 50
+        max_depth: 5
+        learning_rate: 0.1
+        subsample: 0.8
+        colsample_bytree: 0.8
+        scale_pos_weight: 1
+        auto_scale_pos_weight: true
+        random_state: 42
+      lightgbm:
+        enabled: true
+        n_estimators: 50
+        max_depth: 5
+        learning_rate: 0.1
+        subsample: 0.8
+        colsample_bytree: 0.8
+        class_weight: "balanced"
+        random_state: 42
+      neural_network:
+        enabled: false

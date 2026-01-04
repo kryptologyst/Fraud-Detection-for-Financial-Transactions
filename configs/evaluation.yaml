@@ -1,0 +1,70 @@
+# Evaluation configuration for fraud detection models
+cross_validation:
+  enabled: true
+  folds: 5
+
+# Metrics to calculate
+metrics:
+  classification:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+    - specificity
+  
+  fraud_specific:
+    - roc_auc
+    - pr_auc
+    - gini_coefficient
+    - ks_statistic
+    - precision_at_k
+
+# Precision@K values
+precision_at_k_values: [10, 50, 100]
+
+# Threshold optimization
+threshold_optimization:
+  enabled: true
+  metric: "f1_score"  # or "precision", "recall", "roc_auc"
+  method: "grid_search"  # or "bayesian"
+
+# Model comparison
+model_comparison:
+  enabled: true
+  primary_metric: "roc_auc"
+  secondary_metrics: ["pr_auc", "f1_score", "ks_statistic"]
+
+# Visualization settings
+visualization:
+  enabled: true
+  save_plots: true
+  plot_format: "html"  # or "png", "pdf"
+  figure_size: [12, 8]
+  dpi: 300
+
+# Statistical significance testing
+statistical_testing:
+  enabled: true
+  test_type: "mcnemar"  # or "wilcoxon", "t_test"
+  alpha: 0.05
+
+# Feature importance analysis
+feature_importance:
+  enabled: true
+  top_n_features: 20
+  plot_top_n: 10
+
+# SHAP analysis
+shap_analysis:
+  enabled: true
+  sample_size: 1000  # Number of samples for SHAP analysis
+  max_features: 20   # Maximum features to analyze
+
+# Performance monitoring
+performance_monitoring:
+  enabled: true
+  alert_thresholds:
+    roc_auc: 0.7
+    precision: 0.5
+    recall: 0.5
+    f1_score: 0.5

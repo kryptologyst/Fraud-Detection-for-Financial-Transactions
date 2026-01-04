@@ -1,0 +1,73 @@
+# Data generation and processing configuration
+seed: 42
+n_users: 1000
+fraud_rate: 0.05
+time_range_days: 30
+
+# Amount distribution parameters
+amount:
+  log_mean: 4.5
+  log_std: 1.2
+
+# Merchant categories and probabilities
+merchant_categories:
+  - "Grocery"
+  - "Gas Station"
+  - "Restaurant"
+  - "Online Shopping"
+  - "ATM"
+  - "Pharmacy"
+  - "Entertainment"
+  - "Travel"
+  - "Healthcare"
+  - "Education"
+
+merchant_probabilities:
+  - 0.25
+  - 0.15
+  - 0.20
+  - 0.15
+  - 0.10
+  - 0.05
+  - 0.05
+  - 0.02
+  - 0.02
+  - 0.01
+
+# Geographic locations and probabilities
+locations:
+  - "New York"
+  - "Los Angeles"
+  - "Chicago"
+  - "Houston"
+  - "Phoenix"
+  - "Philadelphia"
+  - "San Antonio"
+  - "San Diego"
+  - "Dallas"
+  - "San Jose"
+
+location_probabilities:
+  - 0.12
+  - 0.10
+  - 0.08
+  - 0.07
+  - 0.06
+  - 0.06
+  - 0.05
+  - 0.05
+  - 0.05
+  - 0.36
+
+# Device types and probabilities
+device_types:
+  - "Mobile"
+  - "Desktop"
+  - "Tablet"
+  - "ATM"
+
+device_probabilities:
+  - 0.60
+  - 0.30
+  - 0.08
+  - 0.02
